@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Receipt</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+      .container {
+        width: 400px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      .total {
+        font-weight: bold;
+        font-size: 18px;
+        color: #b88c4d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Order Receipt</h2>
+      <p><strong>Name:</strong> <span id="custName"></span></p>
+      <p><strong>Phone:</strong> <span id="custPhone"></span></p>
+      <p><strong>Email:</strong> <span id="custEmail"></span></p>
+      <h3>Ordered Products:</h3>
+      <ul id="productList"></ul>
+      <p class="total">Total: $<span id="totalAmount"></span></p>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let orderData = JSON.parse(localStorage.getItem("orderData"));
+        if (orderData) {
+          document.getElementById("custName").textContent = orderData.name;
+          document.getElementById("custPhone").textContent = orderData.phone;
+          document.getElementById("custEmail").textContent = orderData.email;
+          let productList = document.getElementById("productList");
+          let total = 0;
+          orderData.products.forEach((product) => {
+            let li = document.createElement("li");
+            let cost = product.quantity * product.price;
+            li.textContent = `${product.name} - ${product.quantity} kg - $${cost}`;
+            productList.appendChild(li);
+            total += cost;
+          });
+          document.getElementById("totalAmount").textContent = total;
+        }
+      });
+    </script>
+  </body>
+</html>

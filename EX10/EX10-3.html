@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grocery Order Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: white;
+        padding: 20px;
+      }
+      .container {
+        width: 600px;
+        background: rgb(159, 172, 146);
+        padding: 20px;
+        border-radius: 10px;
+        color: black;
+      }
+      input {
+        width: 40%;
+        padding: 8px;
+        margin: 5px 0;
+        border-radius: 15px;
+      }
+      button {
+        width: 40%;
+        align-items: center;
+        padding: 10px;
+        background-color: rgb(170, 137, 89);
+        border-radius: 10px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2><b>Grocery Order Form</b></h2>
+      <label><b>Customer Name:</b></label
+      ><br />
+      <input type="text" id="name" required />
+      <input type="text" id="name" required /><br /><br />
+      <label><b>Phone Number:</b></label
+      ><br />
+      <input type="text" id="phone" required />
+      <input type="text" id="phone" required /><br /><br />
+      <label><b>Email:</b></label
+      ><br />
+      <input type="email" id="email" required /><br /><br />
+      <h2><b>Products</b></h2>
+      <div class="product">
+        <input
+          type="checkbox"
+          id="apple"
+          value="Apple"
+          data-price="10"
+          style="padding: 0%; padding: 5px; margin-right: 3px; width: 35px"
+        />
+        <label for="apple" style="margin-right: 80px">Apple</label>
+        <label for="apple" style="margin-right: 80px">$10</label>
+        <input
+          type="number"
+          id="appleQty"
+          min="1"
+          max="10"
+          disabled
+          style="
+            width: 5%;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 15px;
+            margin-right: 10px;
+          "
+        />
+        <label for="weight" id="unit">kg</label>
+      </div>
+      <div class="product">
+        <input
+          type="checkbox"
+          id="banana"
+          value="Banana"
+          data-price="5"
+          style="padding: 0%; padding: 5px; margin-right: 3px; width: 35px"
+        />
+        <label for="banana" style="margin-right: 74px">Banana</label>
+        <label for="banana" style="margin-right: 80px">$5</label>
+        <input
+          type="number"
+          id="bananaQty"
+          min="1"
+          max="10"
+          disabled
+          style="
+            width: 5%;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 15px;
+            margin-right: 10px;
+          "
+        />
+        <label for="weight" id="unit">kg</label>
+      </div>
+      <div class="product">
+        <input
+          type="checkbox"
+          id="avocado"
+          value="Avocado"
+          data-price="7"
+          style="padding: 0%; padding: 5px; margin-right: 3px; width: 35px"
+        />
+        <label for="avocado" style="margin-right: 67px">Avocado</label>
+        <label for="avocado" style="margin-right: 80px">$7</label>
+        <input
+          type="number"
+          id="avocadoQty"
+          min="1"
+          max="10"
+          disabled
+          style="
+            width: 5%;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 15px;
+            margin-right: 10px;
+          "
+        />
+        <label for="weight" id="unit">kg</label>
+      </div>
+      <br /><br />
+      <button onclick="submitOrder()" style="margin-left: 180px">
+        <b>SUBMIT</b>
+      </button>
+    </div>
+    <script>
+      document.querySelectorAll('input[type="checkbox"]').forEach((item) => {
+        item.addEventListener("change", function () {
+          let qtyInput = document.getElementById(this.id + "Qty");
+          qtyInput.disabled = !this.checked;
+        });
+      });
+      function submitOrder() {
+        let name = document.getElementById("name").value;
+        let phone = document.getElementById("phone").value;
+        let email = document.getElementById("email").value;
+        let products = [];
+        document
+          .querySelectorAll('input[type="checkbox"]:checked')
+          .forEach((item) => {
+            let qty = document.getElementById(item.id + "Qty").value;
+            if (qty) {
+              products.push({
+                name: item.value,
+                price: item.getAttribute("data-price"),
+                quantity: qty,
+              });
+            }
+          });
+        let orderData = {
+          name: name,
+          phone: phone,
+          email: email,
+          products: products,
+        };
+        localStorage.setItem("orderData", JSON.stringify(orderData));
+        window.location.href = "receipt.html";
+      }
+    </script>
+  </body>
+</html>

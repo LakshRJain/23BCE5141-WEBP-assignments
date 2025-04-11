@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EXERCISE 4</title>
+  </head>
+  <body>
+    <fieldset style="width: 400px">
+      <legend style="color: red"><strong>Personal Details</strong></legend>
+      <table>
+        <tr>
+          <td width="100"><label for="name">Name</label></td>
+          <td>:</td>
+          <td><input type="text" name="name" id="name" /></td>
+        </tr>
+        <tr>
+          <td width="100" align="left">
+            <label for="Password">Pasword</label>
+          </td>
+          <td>:</td>
+          <td><input type="text" name="Password" id="Password" /></td>
+        </tr>
+        <tr>
+          <td width="100" align="left">
+            <label for="E=mail id">E=mail id</label>
+          </td>
+          <td>:</td>
+          <td><input type="text" name="E-mail id" id="E-mail id" /></td>
+        </tr>
+        <tr>
+          <td width="100" align="left"><label for="Gender">Gender</label></td>
+          <td>:</td>
+          <td>
+            <input type="radio" name="Gender" />male
+            <input type="radio" name="Gender" />female
+          </td>
+        </tr>
+        <tr>
+          <td width="100" align="left"><label for="DOB">DOb</label></td>
+          <td>:</td>
+          <td><input type="date" name="DOB" id="DOB" /></td>
+        </tr>
+        <tr>
+          <td width="100" align="left"><label for="mobile">mobile#</label></td>
+          <td>:</td>
+          <td><input type="text" name="mobile" id="mobile" /></td>
+        </tr>
+      </table>
+    </fieldset>
+    <br />
+    <fieldset style="width: 400px">
+      <legend style="color: red">
+        <strong>Educational Qulification</strong>
+      </legend>
+      <table>
+        <tr>
+          <td width="100" align="left"><label for="Degree">Degree</label></td>
+          <td>:</td>
+          <td>
+            <select name="Degree" id="Degree" style="background-color: white">
+              <optgroup label="UG">
+                <option>BE</option>
+                <option>Btech</option>
+                <option>BSc</option>
+                <option>BA</option>
+                <option>BCA</option>
+                <option>BBA</option>
+                <option>Others</option>
+              </optgroup>
+              <optgroup label="PG">
+                <option>ME</option>
+                <option>Mtech</option>
+                <option>MSc</option>
+                <option>MA</option>
+                <option>MCA</option>
+                <option>MBA</option>
+                <option>Others</option>
+              </optgroup>
+              <optgroup label="PhD">
+                <option>Engineering</option>
+                <option>Science</option>
+                <option>Mathematics</option>
+                <option>Others</option>
+              </optgroup>
+            </select>
+          </td>
+          <td width="100" align="left">
+            <label for="Engineering">Engineering</label>
+          </td>
+          <td>:</td>
+          <td>
+            <select
+              name="Engineering"
+              id="Engineering"
+              style="background-color: white"
+            >
+              <option>CSE</option>
+              <option>ECE</option>
+              <option>EEE</option>
+              <option>CIVEL</option>
+              <option>Mech</option>
+            </select>
+          </td>
+          <td>:</td>
+        </tr>
+      </table>
+    </fieldset>
+    <br />
+    <table>
+      <tr>
+        <td width="100" align="left"><label for="Hobbies">Hobbies</label></td>
+        <td>:</td>
+        <td><input type="checkbox" name="Hobbies" />Paying Chess</td>
+        <td><input type="checkbox" name="Hobbies" />Reading Books</td>
+      </tr>
+      <tr>
+        <td width="100" align="left">
+          <label for="Color">Favorite Color</label>
+        </td>
+        <td>:</td>
+        <td>
+          <input
+            type="color"
+            name="color"
+            style="background-color: transparent; height: 25px"
+          />
+        </td>
+      </tr>
+    </table>
+    <br />
+    <fieldset style="border: none">
+      <legend style="color: red"><strong>Address</strong></legend>
+      <tr>
+        <td>
+          <textarea name="Address" id="Address" rows="2" cols="50"></textarea>
+        </td>
+      </tr>
+    </fieldset>
+    <br />
+    <label for="resume">Attach Resume: </label>
+    <input
+      type="file"
+      name="resume"
+      id="resume"
+      width="200"
+      style="backgroundcolor: peachpuff; display: inline-block"
+    />
+    <input
+      type="submit"
+      name="submit"
+      id="submit"
+      value="submit"
+      style="background-color: transparent"
+    />
+  </body>
+</html>

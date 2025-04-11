@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Categories</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>New York City Temperature Report</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Temperature (°F)</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody id="temperatureTable">
+        </tbody>
+    </table>
+    <h3>Summary:</h3>
+    <p>HOT Days (≥ 85°F): <span id="hotDays">0</span></p>
+    <p>PLEASANT Days (60-84°F): <span id="pleasantDays">0</span></p>
+    <p>COLD Days (< 60°F): <span id="coldDays">0</span></p>
+    <script>
+        const temperatures = [55, 62, 68, 74, 59, 45, 41, 58, 60, 67, 65, 78, 82, 88, 91, 92, 90, 93, 87, 80, 78, 79, 72, 68, 61, 59, 55, 65];
+        let hotDays = 0;
+        let pleasantDays = 0;
+        let coldDays = 0;
+        let tableBody = document.getElementById("temperatureTable");
+        temperatures.forEach((temp, index) => {
+            let category;
+            if (temp >= 85) {
+                category = "HOT";
+                hotDays++;
+            } else if (temp >= 60) {
+                category = "PLEASANT";
+                pleasantDays++;
+            } else {
+                category = "COLD";
+                coldDays++;
+            }
+            let row = `<tr>
+                <td>${index + 1}</td>
+                <td>${temp}°F</td>
+                <td>${category}</td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+        document.getElementById("hotDays").textContent = hotDays;
+        document.getElementById("pleasantDays").textContent = pleasantDays;
+        document.getElementById("coldDays").textContent = coldDays;
+    </script>
+</body>
+</html>

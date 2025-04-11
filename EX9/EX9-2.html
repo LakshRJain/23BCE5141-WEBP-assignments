@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Seat Reservation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Airline Seat Reservation System</h2>
+    <label for="passengerName">Enter Passenger Name: </label>
+    <input type="text" id="passengerName">
+    <br>
+    <button onclick="assignSeat(1)">Book First Class (Seats 1-5)</button>
+    <button onclick="assignSeat(2)">Book Economy Class (Seats 6-10)</button>
+    <h3>Boarding Pass</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Passenger Name</th>
+                <th>Seat Number</th>
+                <th>Class</th>
+            </tr>
+        </thead>
+        <tbody id="boardingPass">
+        </tbody>
+    </table>
+    <script>
+        let seats = new Array(10).fill(0); 
+        function assignSeat(section) {
+            let name = document.getElementById("passengerName").value.trim();
+            if (!name) {
+                alert("Please enter a passenger name!");
+                return;
+            }
+            let assignedSeat = -1;
+            let seatClass = "";
+            if (section === 1) { 
+                assignedSeat = findSeat(0, 4);
+                seatClass = "First Class";
+                if (assignedSeat === -1) {
+                    let acceptEconomy = confirm("First Class is full. Would you like a seat in Economy?");
+                    if (acceptEconomy) {
+                        assignedSeat = findSeat(5, 9);
+                        seatClass = "Economy";
+                    }
+                }
+            } else if (section === 2) { 
+                assignedSeat = findSeat(5, 9);
+                seatClass = "Economy";
+                if (assignedSeat === -1) {
+                    let acceptFirstClass = confirm("Economy is full. Would you like a seat in First Class?");
+                    if (acceptFirstClass) {
+                        assignedSeat = findSeat(0, 4);
+                        seatClass = "First Class";
+                    }
+                }
+            }
+            if (assignedSeat !== -1) {
+                seats[assignedSeat] = 1; 
+                printBoardingPass(name, assignedSeat + 1, seatClass);
+                document.getElementById("passengerName").value = ""; 
+            } else {
+                alert("Sorry, all seats are full.");
+            }
+        }
+        function findSeat(start, end) {
+            for (let i = start; i <= end; i++) {
+                if (seats[i] === 0) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        function printBoardingPass(name, seatNumber, seatClass) {
+            let row = `<tr>
+                        <td>${name}</td>
+                        <td>${seatNumber}</td>
+                        <td>${seatClass}</td>
+                      </tr>`;
+            document.getElementById("boardingPass").innerHTML += row;
+        }
+    </script>
+</body>
+</html>

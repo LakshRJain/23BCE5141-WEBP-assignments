@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Animals</title>
+    <style>
+      body {
+        background-image: url(bg7.avif);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      h2 {
+        background-image: linear-gradient(
+          to left,
+          violet,
+          indigo,
+          blue,
+          green,
+          yellow,
+          orange,
+          red
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        width: 200px;
+      }
+      .desc {
+        column-count: 3;
+        line-height: 30px;
+        color: white;
+      }
+      .ball {
+        animation: play 3s infinite;
+      }
+      @keyframes play {
+        0% {
+          transform: translate(0px.0px);
+        }
+        25% {
+          transform: translate(100px, -50px);
+        }
+        50% {
+          transform: translate(200px, 0px);
+        }
+        75% {
+          transform: translate(100px, -50px);
+        }
+        100% {
+          transform: translate(0px, 0px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Pet Animals</h2>
+    <div class="desc">
+      <p>
+        Pet dogs are loyal and loving companions, domesticated from wolves
+        thousands of years ago. They come in various breeds, sizes, and
+        temperaments, making them suitable for different lifestyles. Popular
+        breeds include small ones like Pugs, medium ones like Beagles, and large
+        ones like Labradors. Dogs are known for their intelligence, playfulness,
+        and ability to form strong bonds with humans. They require proper care,
+        including regular feeding, exercise, grooming, and veterinary check-ups.
+        Dogs are not just pets but often considered family members, providing
+        emotional support, companionship, and even assisting in various roles
+        like therapy, security, and search-and-rescue operations.
+      </p>
+    </div>
+    <svg width="400" height="800">
+      <circle
+        cx="100"
+        cy="200"
+        r="50"
+        fill="white"
+        stroke="black"
+        class="ball"
+      />
+    </svg>
+  </body>
+</html>

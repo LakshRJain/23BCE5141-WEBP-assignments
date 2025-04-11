@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pond Scene using JavaScript Canvas 23BCE5141</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5;
+      }
+      canvas {
+        border: 1px solid #000;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="pondScene" width="630" height="410"></canvas>
+    <script>
+      const canvas = document.getElementById("pondScene");
+      const ctx = canvas.getContext("2d");
+      function drawPond() {
+        ctx.beginPath();
+        ctx.ellipse(315, 230, 125, 55, 0, 0, 2 * Math.PI);
+        ctx.fillStyle = "#ADD8E6";
+        ctx.strokeStyle = "#0000FF";
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(270, 210);
+        ctx.lineTo(330, 210);
+        ctx.lineTo(320, 220);
+        ctx.lineTo(280, 220);
+        ctx.closePath();
+        ctx.fillStyle = "#8B0000";
+        ctx.fill();
+        ctx.stroke();
+      }
+      function drawSun() {
+        ctx.beginPath();
+        ctx.arc(515, 85, 40, 0, 2 * Math.PI);
+        ctx.fillStyle = "#FFFF00";
+        ctx.fill();
+
+        for (let i = 0; i < 12; i++) {
+          const angle = (i * Math.PI) / 6;
+          const x1 = 515 + 45 * Math.cos(angle);
+          const y1 = 85 + 45 * Math.sin(angle);
+          const x2 = 515 + 60 * Math.cos(angle);
+          const y2 = 85 + 60 * Math.sin(angle);
+
+          ctx.beginPath();
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(x2, y2);
+          ctx.strokeStyle = "#FFFF00";
+          ctx.lineWidth = 2;
+          ctx.stroke();
+        }
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "#000000";
+      }
+      function drawHouse() {
+        ctx.beginPath();
+        ctx.rect(70, 210, 80, 90);
+        ctx.fillStyle = "#FFA500";
+        ctx.fill();
+        ctx.stroke();
+        // roof
+        ctx.beginPath();
+        ctx.moveTo(70, 210);
+        ctx.lineTo(110, 160);
+        ctx.lineTo(150, 210);
+        ctx.closePath();
+        ctx.fillStyle = "#FF0000";
+        ctx.fill();
+        ctx.stroke();
+
+        //window
+        ctx.beginPath();
+        ctx.rect(80, 225, 20, 20);
+        ctx.fillStyle = "#0000FF";
+        ctx.fill();
+        ctx.stroke();
+
+        //door
+        ctx.beginPath();
+        ctx.rect(100, 250, 20, 50);
+        ctx.fillStyle = "#8B4513";
+        ctx.fill();
+        ctx.stroke();
+      }
+      function drawFlower() {
+        //stem
+        ctx.beginPath();
+        ctx.moveTo(530, 280);
+        ctx.lineTo(530, 320);
+        ctx.strokeStyle = "#008000";
+        ctx.lineWidth = 4;
+        ctx.stroke();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "#000000";
+
+        // right leaf
+        ctx.beginPath();
+        ctx.moveTo(530, 290);
+        ctx.bezierCurveTo(545, 285, 560, 290, 550, 300);
+
+        ctx.fillStyle = "#008000";
+        ctx.fill();
+        ctx.strokeStyle = "#006400";
+        ctx.stroke();
+
+        //leaf (mirrored)
+        ctx.beginPath();
+        ctx.moveTo(530, 290);
+        ctx.bezierCurveTo(515, 285, 500, 290, 510, 300);
+        ctx.fillStyle = "#008000";
+        ctx.fill();
+        ctx.strokeStyle = "#006400";
+        ctx.stroke();
+
+        // flower center
+        ctx.beginPath();
+        ctx.arc(530, 260, 8, 0, 2 * Math.PI);
+        ctx.fillStyle = "#FFFF00";
+        ctx.fill();
+
+        // flower
+        for (let i = 0; i < 6; i++) {
+          const angle = (i * Math.PI) / 3;
+          const x = 530 + 20 * Math.cos(angle);
+          const y = 260 + 20 * Math.sin(angle);
+
+          ctx.beginPath();
+          ctx.arc(x, y, 15, 0, 2 * Math.PI);
+          ctx.fillStyle = "#FFC0CB";
+          ctx.fill();
+        }
+      }
+      function drawDuck() {
+        //body
+        ctx.beginPath();
+        ctx.arc(460, 320, 25, 0, 2 * Math.PI);
+        ctx.fillStyle = "#FFFF00";
+        ctx.fill();
+        ctx.stroke();
+
+        //head
+        ctx.beginPath();
+        ctx.arc(480, 305, 15, 0, 2 * Math.PI);
+        ctx.fillStyle = "#FFFF00";
+        ctx.fill();
+        ctx.stroke();
+
+        // duck eye
+        ctx.beginPath();
+        ctx.arc(485, 300, 4, 0, 2 * Math.PI);
+        ctx.fillStyle = "#000000";
+        ctx.fill();
+        ctx.strokeStyle = "#000000";
+        ctx.stroke();
+
+        // duck beak
+        ctx.beginPath();
+        ctx.moveTo(495, 305);
+        ctx.lineTo(515, 310);
+        ctx.lineTo(495, 315);
+        ctx.closePath();
+        ctx.fillStyle = "#FFA500";
+        ctx.fill();
+      }
+      //stones
+      function drawStones() {
+        const stonePositions = [
+          { x: 100, y: 360, r: 8 },
+          { x: 115, y: 350, r: 12 },
+          { x: 87, y: 350, r: 10 },
+          { x: 480, y: 360, r: 10 },
+          { x: 495, y: 365, r: 8 },
+        ];
+
+        for (const stone of stonePositions) {
+          ctx.beginPath();
+          ctx.arc(stone.x, stone.y, stone.r, 0, 2 * Math.PI);
+          ctx.fillStyle = "#808080";
+          ctx.strokeStyle = "blue";
+          ctx.fill();
+          ctx.stroke();
+        }
+      }
+
+      function drawScene() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        drawSun();
+        drawHouse();
+        drawPond();
+        drawFlower();
+        drawDuck();
+        drawStones();
+      }
+      drawScene();
+    </script>
+  </body>
+</html>

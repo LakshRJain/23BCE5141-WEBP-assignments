@@ -3,111 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Web Programming - Laksh R Jain</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --text-color: #333;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header h2 {
+            color: var(--text-color);
+            font-weight: 400;
+            font-size: 1.5rem;
+        }
+        
+        .exercises-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .exercise-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .exercise-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .exercise-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .exercise-content {
+            padding: 15px;
+        }
+        
+        .exercise-content ul {
+            list-style-type: none;
+        }
+        
+        .exercise-content li {
+            margin-bottom: 8px;
+        }
+        
+        .exercise-content a {
+            display: block;
+            padding: 8px 12px;
+            background-color: #f1f1f1;
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        
+        .exercise-content a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .exercises-container {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <ol>
-        <li>
-            <p>EX1</p>
-            <ul>
-                <li><a href="EX1/EX1-1.html">Question 1</a></li>
-                <li><a href="EX1/EX1-2.html">Question 2</a></li>
-            </ul>
-        </li>
-        <li>
-            <p>EX2</p>
-            <ul>
-                <li><a href="EX2/EX2-1.html">Question 1</a></li>
-                <li><a href="EX2/EX2-2.html">Question 2</a></li>
-                <li><a href="EX2/EX2-3.html">Question 3</a></li>
-                <li><a href="EX2/EX2-4.html">Question 4</a></li>
-                <li><a href="EX2/EX2-5.html">Question 5</a></li>
-            </ul>
-        </li>
-        <li>
-            <p>EX3</p>
-            <ul>
-                <li><a href="EX3/EX3-1.html">Question 1</a></li>
-                <li><a href="EX3/EX3-2.html">Question 2</a></li>
-            </ul>
-        </li>
-        <li>
-            <p>EX4</p>
-            <ul>
-                <li><a href="EX4/EX4-1.html">Question 1</a></li>
-                <li><a href="EX4/EX4-2.html">Question 2</a></li>
-                <li><a href="EX4/EX4-3.html">Question 3</a></li>
-            </ul>
-        </li>
-        <li>
-            <p>EX5</p>
-            <ul>
-                <li><a href="EX5/EX5-1.html">Question 1</a></li>
-                <li><a href="EX5/EX5-2.html">Question 2</a></li>
-            </ul>
-        </li>
-        <li>
-            <p>EX6</p>
-            <ul>
-                <li><a href="EX6/EX6-1.html">Question 1</a></li>
-                <li><a href="EX6/EX6-2.html">Question 2</a></li>
-                <li><a href="EX6/EX6-3.html">Question 3</a></li>
-            </ul>
-        </li>
-        <li>
-            <p>EX7</p>
-            <ul>
-                <li><a href="EX7/EX7-1.html">Question 1</a></li>
-                <li><a href="EX7/EX7-2.html">Question 2</a></li>
-            </ul>
-        </li>
-        <li>
-            <p>EX8</p>
-            <ul>
-                <li><a href="EX8/EX8-1.html">Question 1</a></li>
-                <li><a href="EX8/EX8-2.html">Question 2</a></li>
-                <li><a href="EX8/EX8-3.html">Question 3</a></li>
-                <li><a href="EX8/EX8-4.html">Question 4</a></li>
-                <li><a href="EX8/EX8-5.html">Question 5</a></li>
-                <li><a href="EX8/EX8-6.html">Question 6</a></li>
-                <li><a href="EX8/EX8-7.html">Question 7</a></li>
-                <li><a href="EX8/EX8-8.html">Question 8</a></li>
-            </ul>
-        </li>
-        <li>
-            <p>EX9</p>
-            <ul>
-                <li><a href="EX9/EX9-1.html">Question 1</a></li>
-                <li><a href="EX9/EX9-2.html">Question 2</a></li>
-                <li><a href="EX9/EX9-3.html">Question 3</a></li>
-            </ul>
-        </li>
-        <li>
-            <p>EX10</p>
-            <ul>
-                <li><a href="EX10/EX10-1.html">Question 1</a></li>
-                <li><a href="EX10/EX10-2.html">Question 2</a></li>
-                <li><a href="EX10/EX10-3.html">Question 3</a></li>
-            </ul>
-        </li>
-        <li>
-            <p>EX11</p>
-            <ul>
-                <li><a href="EX11/EX11-1.html">Question 1</a></li>
-                <li><a href="EX11/EX11-2.html">Question 2</a></li>
-                <li><a href="EX11/EX11-3.html">Question 3</a></li>
-            </ul>
-        </li>
-        <li>
-            <p>EX12</p>
-            <ul>
-                <li><a href="EX12/EX12-1.html">Question 1</a></li>
-                <li><a href="EX12/EX12-2.html">Question 2</a></li>
-                <li><a href="EX12/EX12-3.html">Question 3</a></li>
-                <li><a href="EX12/EX12-4.html">Question 4</a></li>
-                <li><a href="EX12/EX12-5.html">Question 5</a></li>
-            </ul>
-        </li>
-    </ol>
+    <div class="container">
+        <header>
+            <h1>WEB PROGRAMMING</h1>
+            <h2>Laksh R Jain - 23BCE5141</h2>
+        </header>
+        
+        <div class="exercises-container">
+            <!-- Exercise 1 -->
+            <div class="exercise-card">
+                <div class="exercise-header">Exercise 1</div>
+                <div class="exercise-content">
+                    <ul>
+                        <li><a href="EX1/EX1-1.html">Question 1</a></li>
+                        <li><a href="EX1/EX1-2.html">Question 2</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Exercise 2 -->
+            <div class="exercise-card">
+                <div class="exercise-header">Exercise 2</div>
+                <div class="exercise-content">
+                    <ul>
+                        <li><a href="EX2/EX2-1.html">Question 1</a></li>
+                        <li><a href="EX2/EX2-2.html">Question 2</a></li>
+                        <li><a href="EX2/EX2-3.html">Question 3</a></li>
+                        <li><a href="EX2/EX2-4.html">Question 4</a></li>
+                        <li><a href="EX2/EX2-5.html">Question 5</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Exercise 3 -->
+            <div class="exercise-card">
+                <div class="exercise-header">Exercise 3</div>
+                <div class="exercise-content">
+                    <ul>
+                        <li><a href="EX3/EX3-1.html">Question 1</a></li>
+                        <li><a href="EX3/EX3-2.html">Question 2</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Exercise 4 -->
+            <div class="exercise-card">
+                <div class="exercise-header">Exercise 4</div>
+                <div class="exercise-content">
+                    <ul>
+                        <li><a href="EX4/EX4-1.html">Question 1</a></li>
+                        <li><a href="EX4/EX4-2.html">Question 2</a></li>
+                        <li><a href="EX4/EX4-3.html">Question 3</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Exercise 5 -->
+            <div class="exercise-card">
+                <div class="exercise-header">Exercise 5</div>
+                <div class="exercise-content">
+                    <ul>
+                        <li><a href="EX5/EX5-1.html">Question 1</a></li>
+                        <li><a href="EX5/EX5-2.html">Question 2</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Exercise 6 -->
+            <div class="exercise-card">
+                <div class="exercise-header">Exercise 6</div>
+                <div class="exercise-content">
+                    <ul>
+                        <li><a href="EX6/EX6-1.html">Question 1</a></li>
+                        <li><a href="EX6/EX6-2.html">Question 2</a></li>
+                        <li><a href="EX6/EX6-3.html">Question 3</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Exercise 7 -->
+            <div class="exercise-card">
+                <div class="exercise-header">Exercise 7</div>
+                <div class="exercise-content">
+                    <ul>
+                        <li><a href="EX7/EX7-1.html">Question 1</a></li>
+                        <li><a href="EX7/EX7-2.html">Question 2</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Exercise 8 -->
+            <div class="exercise-card">
+                <div class="exercise-header">Exercise 8</div>
+                <div class="exercise-content">
+                    <ul>
+                        <li><a href="EX8/EX8-1.html">Question 1</a></li>
+                        <li><a href="EX8/EX8-2.html">Question 2</a></li>
+                        <li><a href="EX8/EX8-3.html">Question 3</a></li>
+                        <li><a href="EX8/EX8-4.html">Question 4</a></li>
+                        <li><a href="EX8/EX8-5.html">Question 5</a></li>
+                        <li><a href="EX8/EX8-6.html">Question 6</a></li>
+                        <li><a href="EX8/EX8-7.html">Question 7</a></li>
+                        <li><a href="EX8/EX8-8.html">Question 8</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Exercise 9 -->
+            <div class="exercise-card">
+                <div class="exercise-header">Exercise 9</div>
+                <div class="exercise-content">
+                    <ul>
+                        <li><a href="EX9/EX9-1.html">Question 1</a></li>
+                        <li><a href="EX9/EX9-2.html">Question 2</a></li>
+                        <li><a href="EX9/EX9-3.html">Question 3</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Exercise 10 -->
+            <div class="exercise-card">
+                <div class="exercise-header">Exercise 10</div>
+                <div class="exercise-content">
+                    <ul>
+                        <li><a href="EX10/EX10-1.html">Question 1</a></li>
+                        <li><a href="EX10/EX10-2.html">Question 2</a></li>
+                        <li><a href="EX10/EX10-3.html">Question 3</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Exercise 11 -->
+            <div class="exercise-card">
+                <div class="exercise-header">Exercise 11</div>
+                <div class="exercise-content">
+                    <ul>
+                        <li><a href="EX11/EX11-1.html">Question 1</a></li>
+                        <li><a href="EX11/EX11-2.html">Question 2</a></li>
+                        <li><a href="EX11/EX11-3.html">Question 3</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Exercise 12 -->
+            <div class="exercise-card">
+                <div class="exercise-header">Exercise 12</div>
+                <div class="exercise-content">
+                    <ul>
+                        <li><a href="EX12/EX12-1.html">Question 1</a></li>
+                        <li><a href="EX12/EX12-2.html">Question 2</a></li>
+                        <li><a href="EX12/EX12-3.html">Question 3</a></li>
+                        <li><a href="EX12/EX12-4.html">Question 4</a></li>
+                        <li><a href="EX12/EX12-5.html">Question 5</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 Laksh R Jain | Web Programming Portfolio</p>
+        </footer>
+    </div>
 </body>
 </html>

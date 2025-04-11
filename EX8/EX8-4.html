@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labour Cost Calculator</title>
+    <script>
+        function calculateCharge() {
+            const ratePerHour = 45; 
+            let hoursWorked = parseFloat(prompt("Enter the number of hours worked:"));
+            let materialCost = parseFloat(prompt("Enter the cost of materials (Rs.):"));
+            if (isNaN(hoursWorked) || isNaN(materialCost) || hoursWorked < 0 || materialCost < 0) {
+                alert("Invalid input! Please enter valid numbers.");
+                return;
+            }
+            let labourCost = ratePerHour * hoursWorked;
+            let totalCharge = labourCost + materialCost;
+            alert(`Labour Cost: Rs. ${labourCost.toFixed(2)}\nTotal Charge: Rs. ${totalCharge.toFixed(2)}`);
+        }
+    </script>
+</head>
+<body onload="calculateCharge()">
+</body>
+</html>

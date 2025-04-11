@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <script>
+        function calculator() {
+            let num1 = parseFloat(prompt("Enter the first number:"));
+            let num2 = parseFloat(prompt("Enter the second number:"));
+            
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Invalid input! Please enter valid numbers.");
+                return;
+            }
+
+            let operation = prompt("Choose an operation: +, -, *, /, %");
+
+            let result;
+            switch (operation) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    if (num2 === 0) {
+                        alert("Error! Division by zero.");
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                case "%":
+                    if (num2 === 0) {
+                        alert("Error! Modulo by zero.");
+                        return;
+                    }
+                    result = num1 % num2;
+                    break;
+                default:
+                    alert("Invalid operation! Please choose +, -, *, /, or %.");
+                    return;
+            }
+
+            alert(`Result: ${num1} ${operation} ${num2} = ${result}`);
+        }
+    </script>
+</head>
+<body onload="calculator()">
+</body>
+</html>

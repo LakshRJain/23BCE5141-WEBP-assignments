@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <script>
+        function getRegistrationNumber() {
+            let isStudent = confirm("Are you a student?");
+
+            if (isStudent) {
+                let regNumber = prompt("Enter your registration number:");
+                
+                if (regNumber && regNumber.trim() !== "") {
+                    alert(`Registration successful! Your registration number is: ${regNumber}`);
+                } else {
+                    alert("Invalid input! Registration number cannot be empty.");
+                }
+            } else {
+                alert("You must be a student to enter a registration number.");
+            }
+        }
+    </script>
+</head>
+<body onload="getRegistrationNumber()">
+</body>
+</html>

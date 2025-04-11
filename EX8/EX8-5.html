@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Display</title>
+</head>
+<body>
+    <div id="nameDisplay"></div>
+    <script>
+        let regNo = prompt("Enter your Registration Number:");
+        let name = prompt("Enter your Name:");
+        document.write(`<div style="border: 5px solid red; display: inline-block; padding: 10px; font-weight: bold; font-size: 20px; text-align: center;">${regNo}</div><br><br>`);
+        document.getElementById("nameDisplay").innerHTML = `<div style="border: 5px solid black; padding: 10px; font-weight: bold; font-size: 20px; color: red; text-align: center;">*${name}*</div>`;
+    </script>
+</body>
+</html>
